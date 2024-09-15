@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Ingredient Checker",
+  "description": "Checks food items in cart for bad ingredients.",
+  "version": "1.0",
+  "permissions": ["storage", "activeTab", "tabs", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_popup_options": {
+      "width": 400,
+      "height": 380
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.instacart.com/*", "*://*.instacart.ca/*"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
+
